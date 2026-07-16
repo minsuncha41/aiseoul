@@ -1,3 +1,6 @@
+페이지 : https://minsuncha41.github.io/aiseoul/
+
+
 # MACROSCOPIC SEOUL (Light Theme)
 
 서울의 대표 랜드마크와 계절별 축제를 소개하는 프리미엄 관광 브랜드 사이트입니다. Apple / Tesla / Polestar의 스크롤 스토리텔링과 절제된 UI를 서울이라는 주제에 맞게 재해석했습니다.
