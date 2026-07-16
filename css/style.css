@@ -1124,7 +1124,7 @@ ul {
 .map-pin {
   position: absolute;
   transform: translate(-50%, -100%);
-  color: red;
+  color: rgb(8, 0, 255);
   filter: drop-shadow(0 40px 10px rgba(20, 22, 26, 0.25));
   transition: transform var(--transition-fast), color var(--transition-fast);
 }
