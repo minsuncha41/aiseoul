@@ -167,14 +167,16 @@ ul {
   right: 0;
   z-index: 500;
   padding: 28px 48px;
-  color: var(--color-on-image);
-  transition: background-color var(--transition-base), padding var(--transition-base),
-    border-color var(--transition-base), color var(--transition-base);
+  background-color: rgba(246, 246, 243, 1);
+  color: black;
+  /* color: var(--color-on-image); */
+  /* transition: background-color var(--transition-base), padding var(--transition-base),
+    border-color var(--transition-base), color var(--transition-base); */
   border-bottom: 1px solid transparent;
 }
 
 .site-header.is-scrolled {
-  background-color: rgba(246, 246, 243, 0.9);
+  background-color: rgba(246, 246, 243, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: 16px 48px;

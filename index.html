@@ -124,7 +124,17 @@
     <!-- ============================== -->
     <section class="hero-section" id="home">
       <div class="hero-slide-track" id="heroSlideTrack">
-        <div class="hero-slide is-active" style="background-image:url('./imgs/cgc1.jpeg')"></div>
+        <div class="hero-slide is-active video-slide">
+          <video style="
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position: center 10px ;
+    " class="hero-video" autoplay muted playsinline>
+            <source src="./imgs/solvdohb.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-slide" style="background-image:url('./imgs/cgc1.jpeg')"></div>
         <div class="hero-slide" style="background-image:url('./imgs/ddp1.jpeg')"></div>
         <div class="hero-slide" style="background-image:url('./imgs/gbg1.jpeg')"></div>
         <div class="hero-slide" style="background-image:url('./imgs/hg1.jpeg')"></div>
@@ -133,7 +143,7 @@
         <div class="hero-slide" style="background-image:url('./imgs/sol1.jpeg')"></div>
       </div>
 
-      <div class="hero-overlay"></div>
+      <div class="hero-overlay" id="hero-overlay"></div>
 
       <div class="hero-content">
         <p class="hero-eyebrow">SEOUL, KOREA</p>
@@ -176,7 +186,9 @@
         <button class="hero-slide-dot" data-slide-index="3" aria-label="슬라이드 4"></button>
         <button class="hero-slide-dot" data-slide-index="4" aria-label="슬라이드 5"></button>
         <button class="hero-slide-dot" data-slide-index="5" aria-label="슬라이드 6"></button>
-        <button class="hero-slide-dot" data-slide-index="7" aria-label="슬라이드 7"></button>
+        <button class="hero-slide-dot" data-slide-index="6" aria-label="슬라이드 7"></button>
+        <button class="hero-slide-dot" data-slide-index="7" aria-label="슬라이드 8"></button>
+        <button class="hero-slide-dot" data-slide-index="8" aria-label="슬라이드 9"></button>
       </div>
 
       <a href="#landmarks" class="scroll-indicator">
@@ -431,7 +443,7 @@
         <div class="section-heading reveal-on-scroll">
           <p class="section-eyebrow">Gallery</p>
           <h2 class="section-title">서울을 담은 순간들</h2>
-          <p class="section-description">사진 한 장으로 전하는 서울의 표정.</p>
+          <p class="section-description">사진 한 장으로 전하는 서울의 표정. <br> ( 사진을 클릭하면 크게볼수있어요! )</p>
         </div>
 
         <div class="gallery-grid" id="galleryGrid">

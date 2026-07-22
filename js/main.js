@@ -195,6 +195,7 @@ function initHeroSlideshow() {
 
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".hero-slide-dot");
+  const video = document.querySelector(".hero-video");
   if (slides.length === 0) return;
 
   const SLIDE_INTERVAL_MS = 6000;
@@ -211,9 +212,27 @@ function initHeroSlideshow() {
     dots[currentIndex]?.classList.add("is-active");
 
     updateHeroLocation(currentIndex);
+    if (video) {
+      if (currentIndex === 0) {
+        video.currentTime = 0;
+        video.play();
+
+        window.clearInterval(autoplayTimer);
+      } else {
+        video.pause();
+
+        window.clearInterval(autoplayTimer);
+        startAutoplay();
+      }
+    }
   };
 
   const startAutoplay = () => {
+    window.clearInterval(autoplayTimer);
+
+    // 첫 번째 슬라이드에서는 자동 넘김 금지
+    if (currentIndex === 0) return;
+
     autoplayTimer = window.setInterval(() => {
       goToSlide(currentIndex + 1);
     }, SLIDE_INTERVAL_MS);
@@ -232,7 +251,18 @@ function initHeroSlideshow() {
     });
   });
 
+  // 슬라이드 처음 상태 설정
+  goToSlide(0);
+
   startAutoplay();
+
+  // 영상 끝나면 다음 슬라이드
+  if (video) {
+    video.addEventListener("ended", () => {
+      goToSlide(1);
+      startAutoplay();
+    });
+  }
 
   prevButton?.addEventListener("click", () => {
     goToSlide(currentIndex - 1);
@@ -326,6 +356,7 @@ function initLandmarkScenes() {
         railDots.forEach((dot) => {
           dot.classList.toggle("is-active", dot.dataset.target === sceneId);
         });
+        hero - overlay;
       });
     },
     {
@@ -567,21 +598,39 @@ function runSafely(initFn) {
    HERO LOCATION CARD
 ===================================================== */
 function updateHeroLocation(index) {
+  console.log(index); // 확인용
+
   const data = HERO_LOCATIONS[index];
+  const card = document.getElementById("heroLocationCard");
+  const herooverlay = document.getElementById("hero-overlay");
+
+  // 첫 번째(영상) 슬라이드에서는 카드 숨김
+  if (index === 0) {
+    card.style.display = "none";
+    herooverlay.style.display = "none";
+    return;
+  }
+
+  // 나머지 슬라이드에서는 다시 표시
+  card.style.display = "block";
+  herooverlay.style.display = "block";
 
   document.getElementById("heroLocationTitle").textContent = data.title;
-
   document.getElementById("heroLocationSubtitle").textContent = data.subtitle;
-
   document.getElementById("heroLocationDescription").textContent =
     data.description;
 
-  document.getElementById("heroLocationNumber").textContent = String(
-    index + 1,
-  ).padStart(2, "0");
+  // document.getElementById("heroLocationNumber").textContent = String(
+  //   index + 1,
+  // ).padStart(2, "0");
 }
 
 const HERO_LOCATIONS = [
+  {
+    title: "Cheonggyecheon",
+    subtitle: "청계천",
+    description: "도심 속을 흐르는 서울의 대표적인 수변공간",
+  },
   {
     title: "Cheonggyecheon",
     subtitle: "청계천",
