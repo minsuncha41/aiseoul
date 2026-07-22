@@ -583,6 +583,22 @@ ul {
   }
 }
 
+/* 영상추가 */
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-slide {
+  pointer-events: none;
+}
+
+.hero-slide.is-active {
+  pointer-events: auto;
+}
+
 /* =====================================================
    HERO LOCATION CARD
 ===================================================== */
